@@ -1,0 +1,10 @@
+{
+  "source": "d3fend-full-mappings.json",
+  "builtAt": "2026-09-17T15:40:12.798Z",
+  "countermeasureCount": 154,
+  "mappedTechniqueCount": 369,
+  "pairCount": 3760,
+  "uncoveredDomains": [
+    "mobile"
+  ]
+}
