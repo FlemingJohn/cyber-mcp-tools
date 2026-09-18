@@ -13,12 +13,13 @@
     "dev": "tsx src/index.ts",
     "build:defend": "tsx src/defend/build/buildDefendData.ts",
     "build:attack": "tsx src/attack/build/buildAttackData.ts",
-    "build:data": "npm run build:attack && npm run build:defend",
+    "build:data": "npm run build:attack && npm run build:defend && npm run build:figures",
     "inspect": "tsx src/inspect/runInspection.ts",
     "inspect:ui": "npx @modelcontextprotocol/inspector node dist/index.js",
     "typecheck": "tsc --noEmit && tsc -p tsconfig.api.json && tsc -p web/tsconfig.json",
     "web:dev": "vite --config web/vite.config.ts",
-    "web:build": "vite build --config web/vite.config.ts"
+    "web:build": "vite build --config web/vite.config.ts",
+    "build:figures": "tsx src/figures/buildFigures.ts"
   },
   "engines": {
     "node": ">=20"
