@@ -1,3 +1,5 @@
+![Cyber MCP — 918 techniques, 918 detections, 2,017 mitigations, 154 countermeasures, sourced from attack.mitre.org and d3fend.mitre.org](brand/banner.svg)
+
 # Cyber MCP Tools
 
 An MCP server over MITRE ATT&CK and MITRE D3FEND — the attack side and the defence side of
