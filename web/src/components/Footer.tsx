@@ -43,11 +43,14 @@ export function Footer() {
 
         <div className="footGroup">
           <h4>Data</h4>
+          <a href="https://attack.mitre.org/" target="_blank" rel="noreferrer">
+            MITRE ATT&amp;CK
+          </a>
+          <a href="https://d3fend.mitre.org/" target="_blank" rel="noreferrer">
+            MITRE D3FEND
+          </a>
           <a href="https://github.com/mitre-attack/attack-stix-data" target="_blank" rel="noreferrer">
             ATT&amp;CK STIX data
-          </a>
-          <a href="https://d3fend.mitre.org" target="_blank" rel="noreferrer">
-            MITRE D3FEND
           </a>
           <a href="https://modelcontextprotocol.io" target="_blank" rel="noreferrer">
             Model Context Protocol
