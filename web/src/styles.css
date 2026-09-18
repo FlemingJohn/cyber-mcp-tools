@@ -266,6 +266,73 @@ h2 {
 
 .counts p { margin: 0; font-size: 0.78rem; color: var(--body); }
 
+.banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem 2rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+  padding: 1.1rem 1.4rem;
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius);
+  background: var(--glass);
+  backdrop-filter: blur(10px);
+}
+
+.bannerCounts {
+  display: flex;
+  gap: 1.75rem;
+  flex-wrap: wrap;
+  margin: 0;
+}
+
+.bannerCounts dd {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  font-variant-numeric: tabular-nums;
+  background: linear-gradient(120deg, var(--g4), var(--g1) 60%, var(--g3));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.bannerCounts dt {
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--body);
+}
+
+.bannerSources {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--body);
+}
+
+.bannerSources a {
+  padding: 0.24rem 0.65rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  background-image:
+    linear-gradient(#fff, #fff),
+    linear-gradient(120deg, var(--g1), var(--g3));
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  color: var(--g4);
+  text-decoration: none;
+}
+
+.bannerSources a:hover { color: var(--ink); }
+
 .figure {
   margin: 0 0 1.5rem;
   padding: 1.1rem;
