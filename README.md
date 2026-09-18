@@ -14,12 +14,14 @@ either dataset into its context window.
 
 ATT&CK v19.2. Ten tools. No network calls at runtime.
 
+**Official sources** — [MITRE ATT&CK](https://attack.mitre.org/) · [MITRE D3FEND](https://d3fend.mitre.org/) · [ATT&CK STIX data](https://github.com/mitre-attack/attack-stix-data) · [D3FEND ontology](https://github.com/d3fend/d3fend-ontology)
+
 ---
 
 ## Quickstart
 
 ```bash
-git clone <YOUR-REPO-URL>
+git clone https://github.com/FlemingJohn/cyber-mcp-tools
 cd cyber-mcp-tools
 npm install
 npm run build:data     # derives data/ from the MITRE sources
@@ -42,8 +44,10 @@ Then point a client at it:
 Or, if deployed over HTTP, skip all of the above:
 
 ```bash
-claude mcp add --transport http cyber-mcp-tools https://<YOUR-DEPLOYMENT>.vercel.app/mcp
+claude mcp add --transport http cyber-mcp-tools https://cyber-mcp-tools.vercel.app/mcp
 ```
+
+Live at **https://cyber-mcp-tools.vercel.app**
 
 Per-client setup for Claude Code, Claude Desktop, Cursor and Antigravity is in
 [INSTALL.md](INSTALL.md).
@@ -133,13 +137,13 @@ enumerate every technique, and covering it does not guarantee defensive coverage
 
 ## Where the data comes from
 
-**ATT&CK** is read from a local clone of
+**ATT&CK** ([attack.mitre.org](https://attack.mitre.org/)) is read from a local clone of
 [mitre-attack/attack-stix-data](https://github.com/mitre-attack/attack-stix-data) — three
 STIX 2.1 bundles. Set `ATTACK_STIX_DATA` to point elsewhere; it defaults to
 `../attack-stix-data`.
 
-**D3FEND** comes from the published inference output of the
-[d3fend-ontology](https://github.com/d3fend/d3fend-ontology), vendored into the repo. The
+**D3FEND** ([d3fend.mitre.org](https://d3fend.mitre.org/)) comes from the published inference
+output of the [d3fend-ontology](https://github.com/d3fend/d3fend-ontology), vendored into the repo. The
 ontology itself asserts no direct ATT&CK links — the defence-to-attack edge is inferred by
 a reasoner over shared digital artifacts, so only the published inference result carries
 them.
