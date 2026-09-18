@@ -3,3 +3,5 @@ dist
 vendor
 .vercel
 *.tsbuildinfo
+
+public
