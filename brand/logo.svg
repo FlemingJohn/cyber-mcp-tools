@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Cyber MCP Tools">
+  <defs>
+    <linearGradient id="shieldFill" x1="9" y1="5" x2="55" y2="58" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#3B82F6"/>
+      <stop offset="0.55" stop-color="#1D4ED8"/>
+      <stop offset="1" stop-color="#071B4D"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#shieldFill)" fill-rule="evenodd"
+        d="M32 5 L55 13.5 V33 C55 45 44.5 53.5 32 58 C19.5 53.5 9 45 9 33 V13.5 Z
+           M41.5 20.5 L41.5 33.5 L36.8 28.8 L26.5 39.1 L22.9 35.5 L33.2 25.2 L28.5 20.5 Z"/>
+</svg>
