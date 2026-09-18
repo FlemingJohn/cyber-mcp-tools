@@ -1,0 +1,42 @@
+{
+  "name": "cyber-mcp-tools",
+  "version": "1.0.0",
+  "description": "MCP server for the MITRE ATT&CK knowledge base",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "cyber-mcp-tools": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "tsx src/index.ts",
+    "build:defend": "tsx src/defend/build/buildDefendData.ts",
+    "build:attack": "tsx src/attack/build/buildAttackData.ts",
+    "build:data": "npm run build:attack && npm run build:defend",
+    "inspect": "tsx src/inspect/runInspection.ts",
+    "inspect:ui": "npx @modelcontextprotocol/inspector node dist/index.js",
+    "typecheck": "tsc --noEmit && tsc -p tsconfig.api.json"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/server": "^2.0.0",
+    "mcp-handler": "^2.1.1",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.3",
+    "tsx": "^4.23.13",
+    "typescript": "^7.0.2"
+  },
+  "license": "MIT",
+  "files": [
+    "dist",
+    "data",
+    "LICENSE",
+    "NOTICE",
+    "README.md"
+  ]
+}
