@@ -9,7 +9,7 @@ interface SectionProps {
 
 export function Section({ heading, lede, anchor, children }: SectionProps) {
   return (
-    <section id={anchor}>
+    <section id={anchor} className="reveal">
       <h2>{heading}</h2>
       <p className="lede">{lede}</p>
       {children}
