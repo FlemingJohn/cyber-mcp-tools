@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "cyber-mcp-tools": {
+      "command": "node",
+      "args": ["D:\\MCP-TOOL\\cyber-mcp-tools\\dist\\index.js"]
+    }
+  }
+}
