@@ -16,7 +16,9 @@
     "build:data": "npm run build:attack && npm run build:defend",
     "inspect": "tsx src/inspect/runInspection.ts",
     "inspect:ui": "npx @modelcontextprotocol/inspector node dist/index.js",
-    "typecheck": "tsc --noEmit && tsc -p tsconfig.api.json"
+    "typecheck": "tsc --noEmit && tsc -p tsconfig.api.json && tsc -p web/tsconfig.json",
+    "web:dev": "vite --config web/vite.config.ts",
+    "web:build": "vite build --config web/vite.config.ts"
   },
   "engines": {
     "node": ">=20"
@@ -28,8 +30,14 @@
   },
   "devDependencies": {
     "@types/node": "^22.20.3",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.1",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
     "tsx": "^4.23.13",
-    "typescript": "^7.0.2"
+    "typescript": "^7.0.2",
+    "vite": "^8.3.0"
   },
   "license": "MIT",
   "files": [
