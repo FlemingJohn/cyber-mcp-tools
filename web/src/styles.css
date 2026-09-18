@@ -266,6 +266,48 @@ h2 {
 
 .counts p { margin: 0; font-size: 0.78rem; color: var(--body); }
 
+.figure {
+  margin: 0 0 1.5rem;
+  padding: 1.1rem;
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius);
+  background: var(--glass);
+  backdrop-filter: blur(10px);
+}
+
+.figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+}
+
+.figure.is-narrow img { max-width: 430px; margin: 0 auto; }
+
+.figure figcaption {
+  margin-top: 1rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--hairline);
+  color: var(--body);
+  font-size: 0.84rem;
+  max-width: var(--measure);
+}
+
+.figure figcaption b { color: var(--ink); font-weight: 600; }
+
+.coverageKey {
+  display: flex;
+  gap: 1.1rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.9rem;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--body);
+}
+
+.coverageKey span { display: inline-flex; align-items: center; gap: 0.4rem; }
+.coverageKey i { width: 0.85rem; height: 0.85rem; border-radius: 3px; display: inline-block; }
+
 .tableWrap {
   overflow-x: auto;
   border-radius: var(--radius);
@@ -434,7 +476,56 @@ footer {
 
 .footGroup a:hover { color: var(--g1); text-decoration: underline; }
 
+.reveal[data-reveal="pending"] {
+  opacity: 0;
+  transform: translateY(18px);
+}
+
+.reveal[data-reveal="shown"] {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 640ms cubic-bezier(0.2, 0.7, 0.25, 1),
+    transform 640ms cubic-bezier(0.2, 0.7, 0.25, 1);
+}
+
+.hero .mark { animation: float 7s ease-in-out 900ms infinite; }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-9px); }
+}
+
+.gbtn {
+  background-size: 210% 100%;
+  animation: drift 11s ease-in-out infinite;
+}
+
+@keyframes drift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.feature,
+.counts div,
+.limit,
+.figure,
+.tableWrap,
+.install {
+  transition: border-color 260ms ease, transform 260ms ease;
+}
+
+.feature:hover,
+.counts div:hover,
+.limit:hover {
+  border-color: rgba(47, 107, 240, 0.42);
+  transform: translateY(-2px);
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .word, .heroSub, .heroTicker, .heroActions, .rotating { animation: none !important; }
+  .word, .heroSub, .heroTicker, .heroActions, .rotating,
+  .hero .mark, .gbtn { animation: none !important; }
+  .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .feature:hover, .counts div:hover, .limit:hover { transform: none; }
 }
