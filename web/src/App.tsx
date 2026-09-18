@@ -9,7 +9,6 @@ import { LimitList } from "./components/LimitList.js";
 import { InstallTabs } from "./components/InstallTabs.js";
 import { Figure } from "./components/Figure.js";
 import { CoverageKey } from "./components/CoverageKey.js";
-import { SourceBanner } from "./components/SourceBanner.js";
 import { Footer } from "./components/Footer.js";
 import { useRevealOnScroll } from "./hooks/useRevealOnScroll.js";
 
@@ -22,8 +21,6 @@ export function App() {
       <TopBar />
       <Hero />
       <main>
-        <SourceBanner />
-
         <Section
           heading="On the coverage"
           lede="549 of 918 techniques have no countermeasure mapped to them. This is where the gaps actually are."
