@@ -1,0 +1,13 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "npm run build",
+  "installCommand": "npm install",
+  "functions": {
+    "api/mcp.ts": {
+      "memory": 2048,
+      "maxDuration": 60,
+      "includeFiles": "data/**"
+    }
+  },
+  "rewrites": [{ "source": "/mcp", "destination": "/api/mcp" }]
+}
