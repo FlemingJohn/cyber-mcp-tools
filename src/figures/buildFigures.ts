@@ -8,16 +8,34 @@ import { getTerrainColumns } from "./getTerrainColumns.js";
 import { drawTerrain } from "./drawTerrain.js";
 import { drawDetectionChain } from "./drawDetectionChain.js";
 import { drawExplodedTechnique } from "./drawExplodedTechnique.js";
+import { drawBanner } from "./drawBanner.js";
+import { getBannerRidge } from "./getBannerRidge.js";
+import type { AttackMeta } from "../attack/types/AttackMeta.js";
 
 const outputDirectory = join(process.cwd(), "web", "public", "figures");
+const brandDirectory = join(process.cwd(), "brand");
 mkdirSync(outputDirectory, { recursive: true });
+mkdirSync(brandDirectory, { recursive: true });
 
 const techniques = readDataFile<Technique[]>("attack", "techniques.json");
 const actors = readDataFile<Actor[]>("attack", "actors.json");
 const stored = readDataFile<Record<string, Countermeasure[]>>("defend", "countermeasures.json");
 const coveredIds = Object.keys(stored);
 
-const terrain = drawTerrain(getTerrainColumns(techniques, actors, coveredIds, 8, 8));
+const columns = getTerrainColumns(techniques, actors, coveredIds, 8, 8);
+const terrain = drawTerrain(columns);
+
+const meta = readDataFile<AttackMeta>("attack", "meta.json");
+const format = (value: number) => value.toLocaleString("en-US");
+const banner = drawBanner(
+  [
+    { value: format(meta.techniqueCount), label: "techniques" },
+    { value: format(meta.detectionCount), label: "detections" },
+    { value: format(meta.mitigationCount), label: "mitigations" },
+    { value: format(new Set(Object.values(stored).flat().map((one) => one.name)).size), label: "countermeasures" },
+  ],
+  getBannerRidge(columns),
+);
 
 const chain = drawDetectionChain(
   [
@@ -43,5 +61,8 @@ if (parent !== undefined) {
 
 for (const [name, svg] of figures) {
   writeFileSync(join(outputDirectory, name), svg, "utf8");
-  console.log(`wrote ${name} ${(svg.length / 1024).toFixed(0)} KB`);
+  console.log(`wrote web/public/figures/${name} ${(svg.length / 1024).toFixed(0)} KB`);
 }
+
+writeFileSync(join(brandDirectory, "banner.svg"), banner, "utf8");
+console.log(`wrote brand/banner.svg ${(banner.length / 1024).toFixed(0)} KB`);
